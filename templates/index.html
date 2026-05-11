@@ -1015,6 +1015,7 @@ processBtn.onclick = async () => {
     const data = await resp.json();
     if (data.error) { alert(data.error); resetProcessBtn(); return; }
     currentJobId = data.job_id;
+    processBtn.innerHTML = '<span class="spinner"></span> Processing...';
     showProcessing();
     startPolling();
   } catch (err) {
